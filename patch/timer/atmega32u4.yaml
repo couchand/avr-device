@@ -36,3 +36,7 @@ TC3:
       description: "Timer/Counter3 High Byte (access order is important!)"
       addressOffset: 0x5D
       access: read-write
+
+TC4:
+  _include:
+    - "dev/10bit.yaml"
