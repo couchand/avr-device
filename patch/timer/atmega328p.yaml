@@ -4,3 +4,22 @@
 TC0:
   _include:
     - "dev/8bit.yaml"
+
+TC1:
+  _include:
+    - "dev/16bit.yaml"
+
+# Replace the 16-bit counter register with two 8-bit ones, to allow code to
+# correctly read out a value (order matters here):
+TC1:
+  _delete:
+    - TCNT1
+  _add:
+    TCNT1L:
+      description: "Timer/Counter1 Low Byte (access order is important!)"
+      addressOffset: 0x4E
+      access: read-write
+    TCNT1H:
+      description: "Timer/Counter1 High Byte (access order is important!)"
+      addressOffset: 0x4F
+      access: read-write
