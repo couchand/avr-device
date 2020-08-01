@@ -5,6 +5,7 @@
 #![cfg_attr(feature = "atmega328p", doc = "**atmega328p**,")]
 #![cfg_attr(feature = "atmega32u4", doc = "**atmega32u4**,")]
 #![cfg_attr(feature = "atmega64", doc = "**atmega64**,")]
+#![cfg_attr(feature = "attiny84", doc = "**attiny84**,")]
 #![cfg_attr(feature = "attiny85", doc = "**attiny85**,")]
 //! and a few things which apply to AVR microcontrollers generally.
 //!
@@ -16,6 +17,7 @@
 //! * `atmega328p`
 //! * `atmega32u4`
 //! * `atmega64`
+//! * `attiny84`
 //! * `attiny85`
 #![no_std]
 #![feature(llvm_asm)]
@@ -76,6 +78,8 @@ pub use crate::devices::atmega32u4;
 pub use crate::devices::atmega8;
 #[cfg(feature = "atmega64")]
 pub use crate::devices::atmega64;
+#[cfg(feature = "attiny84")]
+pub use crate::devices::attiny84;
 #[cfg(feature = "attiny85")]
 pub use crate::devices::attiny85;
 
@@ -86,6 +90,7 @@ pub use crate::devices::attiny85;
     feature = "atmega328p",
     feature = "atmega32u4",
     feature = "atmega64",
+    feature = "attiny84",
     feature = "attiny85",
 )))]
 compile_error!("You need to select at least one chip as a feature!");
